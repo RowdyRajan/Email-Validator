@@ -10,7 +10,7 @@
 
 <style>
 #fourm {
-	width:500px;
+	width:600px;
 	margin:0 auto;
 	font-family:helvetica;
 	font-size:1.2em;
@@ -23,31 +23,61 @@ input {
 	border-radius:5px;
 	font-size:1.2em;
 	border:1px solid grey;
+	margin-bottom:10px;
 }
 
 label{
-	width:150px;
+	width:200px;
 	float:left;
 	padding-top:7px;
 }
-</style>	
+
+#submit{
+	height:50px;
+	width:100px;
+	margin-left:200px
+}
+</style>
+<script>
+	Source: http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
+	function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+}
+</script>	
 </head>
 
 <body>
 
 <div id="fourm">
-	<form>
-		<label for="email">Email</label>
+	<form id="info">
+		<label for="email" id="email">Email</label>
 		<input type="email" name="email"/>
+		
+		<label for="phone">Phone Number</label>
+		<input name="phone"/>
+		
+		<label for="password">Password</label>
+		<input type="password" name="password"/>
+		
+		<label for="confrimPassword">Confirm Password</label>
+		<input type="password" name="ConfrimPassword"/>
+		
+		<input id="submit" type="submit" value="submit"/>
 		
 	</form>
 </div>
 
 <script>
-	
-	
+	$("#info").submit(function(){
 
+		if(!validateEmail($("#email").val())){
+			alert("Not valid");		
 		
+	}else{
+		alert("Valid");		
+	}
+	});
 	
 </script>
 

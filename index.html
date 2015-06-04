@@ -52,7 +52,7 @@ label{
 <div id="fourm">
 	<form id="info">
 		<label for="email" id="email">Email</label>
-		<input type="email" name="email"/>
+		<input name="email" id="mail"/>
 		
 		<label for="phone">Phone Number</label>
 		<input name="phone"/>
@@ -69,15 +69,25 @@ label{
 </div>
 
 <script>
-	$("#info").submit(function(){
-
-		if(!validateEmail($("#email").val())){
-			alert("Not valid");		
-		
+	/*
+	if(validateEmail("asdf@asdf.com")){
+		alert("valid");
 	}else{
-		alert("Valid");		
+		alert("not valid");
 	}
-	});
+	*/
+	
+	$("#info").submit(function(event){
+		
+		event.preventDefault();
+		if(!validateEmail($("#mail").val())){
+			alert("Invalid");	
+				
+		}else{
+			alert("Valid");		
+		}
+		
+		});
 	
 </script>
 

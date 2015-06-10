@@ -8,88 +8,34 @@
 
 <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
 
-<style>
-#fourm {
-	width:600px;
-	margin:0 auto;
-	font-family:helvetica;
-	font-size:1.2em;
-}	
-
-input {
-	width:300px;
-	height:30px;
-	padding:5px;
-	border-radius:5px;
-	font-size:1.2em;
-	border:1px solid grey;
-	margin-bottom:10px;
-}
-
-label{
-	width:200px;
-	float:left;
-	padding-top:7px;
-}
-
-#submit{
-	height:50px;
-	width:100px;
-	margin-left:200px
-}
-</style>
-<script>
-	Source: http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
-	function validateEmail(email) {
-    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    return re.test(email);
-}
-</script>	
+<link rel="stylesheet" href="styles.css"/>
+<script src="emailregex.js"></script>	
 </head>
 
 <body>
 
 <div id="fourm">
+
+	<div id="error"></div>
 	<form id="info">
 		<label for="email" id="email">Email</label>
 		<input name="email" id="mail"/>
 		
 		<label for="phone">Phone Number</label>
-		<input name="phone"/>
+		<input name="phone" id="phone"/>
 		
 		<label for="password">Password</label>
-		<input type="password" name="password"/>
+		<input type="password" name="password" id="password"/>
 		
 		<label for="confrimPassword">Confirm Password</label>
-		<input type="password" name="ConfrimPassword"/>
+		<input type="password" name="ConfrimPassword" id="confirmPassword"/>
 		
 		<input id="submit" type="submit" value="submit"/>
 		
 	</form>
 </div>
 
-<script>
-	/*
-	if(validateEmail("asdf@asdf.com")){
-		alert("valid");
-	}else{
-		alert("not valid");
-	}
-	*/
-	
-	$("#info").submit(function(event){
-		
-		event.preventDefault();
-		if(!validateEmail($("#mail").val())){
-			alert("Invalid");	
-				
-		}else{
-			alert("Valid");		
-		}
-		
-		});
-	
-</script>
+<script src="submitChecker.js"> </script>
 
 </body>
 </html>
